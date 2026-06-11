@@ -1,0 +1,36 @@
+{
+    "schemaVersion": 1,
+    "id": "${mod_id}",
+    "version": "${version}",
+    "name": "Example Mod",
+    "description": "This is an example description! Tell everyone what your mod is about!",
+    "authors": [
+        "Me!"
+    ],
+    "contact": {
+        "sources": "https://github.com/jumpingpxl/modular-fabric-mod-template"
+    },
+    "icon": "assets/${mod_id}/icon.png",
+    "environment": "client",
+    "accessWidener": "mod.accesswidener",
+    "entrypoints": {
+        "preLaunch": [
+            "modularmodtemplate.runner.DevEnvironmentMixinApplier::apply"
+        ],
+        "client": [
+            "com.example.core.DefaultExampleMod"
+        ],
+        "modmenu": [
+            "com.example.integration.modmenu.ModMenuIntegration"
+        ]
+    },
+    "depends": {
+        "fabricloader": ">=${fabric_loader_version}",
+        "minecraft": "${minecraft_version}",
+        "java": ">=${java_version}",
+        "fabric-api": "*"
+    },
+    "suggests": {
+        "modmenu": "*"
+    }
+}
