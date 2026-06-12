@@ -22,6 +22,10 @@ subprojects {
                 includeGroup("maven.modrinth")
             }
         }
+
+        maven("https://maven.isxander.dev/releases") {
+            name = "Xander Maven"
+        }
     }
 
     dependencies {

@@ -2,13 +2,13 @@
     "schemaVersion": 1,
     "id": "${mod_id}",
     "version": "${version}",
-    "name": "Example Mod",
+    "name": "unseven",
     "description": "This is an example description! Tell everyone what your mod is about!",
     "authors": [
-        "Me!"
+        "JumpingPxl"
     ],
     "contact": {
-        "sources": "https://github.com/jumpingpxl/modular-fabric-mod-template"
+        "sources": "https://github.com/jumpingpxl/unseven-fabric"
     },
     "icon": "assets/${mod_id}/icon.png",
     "environment": "client",
@@ -18,17 +18,18 @@
             "modularmodtemplate.runner.DevEnvironmentMixinApplier::apply"
         ],
         "client": [
-            "com.example.core.DefaultExampleMod"
+            "dev.jumpingpxl.unseven.core.Unseven"
         ],
         "modmenu": [
-            "com.example.integration.modmenu.ModMenuIntegration"
+            "dev.jumpingpxl.unseven.integration.modmenu.ModMenuIntegration"
         ]
     },
     "depends": {
         "fabricloader": ">=${fabric_loader_version}",
         "minecraft": "${minecraft_version}",
         "java": ">=${java_version}",
-        "fabric-api": "*"
+        "fabric-api": "*",
+        "yet_another_config_lib_v3": "*"
     },
     "suggests": {
         "modmenu": "*"

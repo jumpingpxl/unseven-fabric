@@ -1,0 +1,9 @@
+{
+    "unseven.blocked.message": "Es wurde verhindert, dass der mögliche Befehl \"%s\" als Nachricht gesendet wird.",
+    "unseven.blocked.message.action": "Wähle eine Aktion: %s %s",
+    "unseven.blocked.message.sendAsMessage": "[Als Nachricht senden]",
+    "unseven.blocked.message.sendAsComand": "[Als Befehl senden]",
+    "unseven.action.message.error": "Die Aktion konnte nicht ausgeführt werden. Grund: %s",
+    "unseven.action.message.error.expired": "Abgelaufen oder bereits ausgeführt.",
+    "unseven.action.message.error.consumed": "Bereits ausgeführt."
+}

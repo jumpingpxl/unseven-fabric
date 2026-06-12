@@ -1,0 +1,22 @@
+{
+    "unseven.config.enabled.name": "Enabled",
+    "unseven.config.bypassWhileControlPressed.name": "Bypass While Control is Pressed",
+    "unseven.config.bypassWhileControlPressed.description": "If enabled, bypasses all checks made by the mod if the control button is pressed while the message is sent",
+    "unseven.config.blockSevenOnly.name": "Block Seven Only",
+    "unseven.config.blockSevenOnly.description": "If enabled and the first word is just \"7\", the message is sent",
+    "unseven.config.ignoreOnlinePlayerNames.name": "Ignore Online Player Names",
+    "unseven.config.ignoreOnlinePlayerNames.description": "If enabled and the first word is the ingame name of another player on your server, the message is sent - instead of being blocked (useful when addressing another player whose name starts with a 7)",
+    "unseven.config.ignoredWords.name": "Ignored Words (Case Insensitive)",
+    "unseven.config.ignoredWords.description": "List of words that won't be blocked. Any upper case character will be lowercased.",
+    "unseven.booleanTypes.yes/no.true": "YES",
+    "unseven.booleanTypes.yes/no.false": "NO",
+    "unseven.booleanTypes.on/off.true": "ON",
+    "unseven.booleanTypes.on/off.false": "OFF",
+    "unseven.blocked.message": "Blocked possible command \"%s\" from being sent as a message.",
+    "unseven.blocked.message.action": "Select Action: %s %s",
+    "unseven.blocked.message.sendAsMessage": "[Send as Message]",
+    "unseven.blocked.message.sendAsComand": "[Send as Command]",
+    "unseven.action.message.error": "Could not execute action. Reason: %s",
+    "unseven.action.message.error.expired": "Expired or already executed.",
+    "unseven.action.message.error.consumed": "Already executed."
+}

@@ -1,12 +1,13 @@
 dependencies {
     if (globalSettings.includeAPIModule) {
-        api(project(path = ":mod:api"))
+        api(project(":mod:api"))
     } else if (globalSettings.includeModelsModule) {
         api(project(":models"))
     }
 
     // Additional dependencies
-    // implementation(modDependencies.fabric.api)
+    api(modDependencies.fabric.api)
+    api(modDependencies.yacl)
 }
 
 tasks.processResources {

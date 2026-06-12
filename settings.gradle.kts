@@ -1,4 +1,4 @@
-rootProject.name = "example" // is also used as mod id, so keep it simple
+rootProject.name = "unseven" // is also used as mod id, so keep it simple
 
 // configure the project here
 globalSettings {
@@ -7,8 +7,8 @@ globalSettings {
     sources = false // whether to create a sources jar on build
 
     // modules
-    includeModelsModule = true // whether to add the models module (for shared code between the mod & processor)
-    includeAPIModule = true // whether to use the api module as base. If false, the core module will be the base
+    includeModelsModule = false // whether to add the models module (for shared code between the mod & processor)
+    includeAPIModule = false // whether to use the api module as base. If false, the core module will be the base
     integrations = listOf(
         "modmenu",
         // the integrations to load (in the `integrations` folder)
