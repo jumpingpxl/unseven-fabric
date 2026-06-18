@@ -6,10 +6,12 @@ Featuring automatic mixin configuration generation and isolated modules for robu
 ## Benefits
 
 - **Modular Structure:** Separates modules for API & core implementation, mod support and the development environment.
-- **Automated Mixin Configuration:** Reduces boilerplate and potential errors due to automatic generation of the Mixin
-  configuration.
+- **Automated Mixin Configuration:** Automatically generates and registers your Mixin configurations, drastically
+  reducing boilerplate and manual setup errors.
 - **Isolated Modules for Optional Mod Support:** Keep your code clean and eliminate the risk of breaking your mod if a (
   supposedly) optional mod dependency is missing at runtime.
+- **Zero-Setup Access Widener:** Automatically detects, registers, and injects your `.accesswidener` file if it contains
+  rules, or gracefully strips it from the production JAR if left empty - no manual setup required.
 
 ## Using the template
 
@@ -17,10 +19,10 @@ Featuring automatic mixin configuration generation and isolated modules for robu
 2. Open the project in your favorite IDE (IntelliJ IDEA is recommended).
 3. Replace the value of `rootProject.name` in `/settings.gradle.kts` with your desired mod id.
    > Don't forget to also rename your assets directory in `/mod/core/src/main/resources/assets/<modid>` to match this
-   new
-   mod id.
+   new mod id.
 4. Update the mod name, description, author, etc. in `/mod/core/src/main/resources/fabric.mod.json`.
 5. Reload the Gradle project, done!
+6. **(Optional)** Delete the `LICENSE` file or replace it with whatever license you want to use for your mod.
 
 ## Project Structure
 
@@ -30,7 +32,7 @@ Featuring automatic mixin configuration generation and isolated modules for robu
 ├── build.gradle.kts                        # Root build script, merges all modules together on build
 ├── gradle.properties                       # Global properties (Mod version)
 ├── gradle/                                 
-│   ├── libraries.versions.toml             # Version catalog for non mod dependencies (Minecraft & Fabric Loader Version, etc)
+│   ├── libraries.versions.toml             # Version catalog for non-mod dependencies (Minecraft & Fabric Loader Version, etc)
 │   └── mod-dependencies.versions.toml      # Version catalog for mod dependencies (Fabric API, ModMenu, etc)
 ├── models/                                 # Shared code/annotations for the mod and processor
 ├── processor/                              # Annotation processor for automatic mixins.json generation
@@ -58,7 +60,7 @@ Where to find things (to view and modify):
 
 ### Adding Dependencies
 
-Depending on where you need to access the dependency you have 4 different options.
+Depending on where you need to access the dependency you have 3 different options.
 
 1. **Create a new Isolated Module:** If you want to isolate the dependency completely from the other modules, while also
    still having access to Minecraft and the Fabric Loader, you can create a new isolated module as described below and
@@ -103,13 +105,20 @@ intending to use, adjust the min version.
 
 ### Warnings
 
-- The access widener should not be renamed from `mod.accesswidener`. During build, it will automatically be renamed to
-  `<modid>.accesswidener` (`<modid>` being the value of `rootProject.name` in `/settings.gradle.kts`)
 - The `preLaunch` entrypoint `modularmodtemplate.runner.DevEnvironmentMixinApplier::apply` (in `fabric.mod.json`) is
   required to load your mixins when starting the game via the run configuration. But don't worry, the entrypoint is
   removed during build and thus isn't included in the output jar.
+  > **Note:** In order to guarantee correct removal, the entrypoint value should not be changed, as the build script
+  looks for that exact string to remove it.
 
 ## Troubleshoot
 
 - *If* the run configuration broke after updating the Minecraft version or mod id: delete it, reload the project from
   disk and reload Gradle. A new (hopefully working) run configuration should have been created.
+
+## License
+
+This template is dedicated to the public domain under the [Unlicense](LICENSE).
+You are free to copy, modify, publish, or distribute this structure in any way you see fit.
+
+Feel free to delete the `LICENSE` file or replace it with your own license.
