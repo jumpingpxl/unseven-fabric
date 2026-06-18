@@ -70,7 +70,7 @@ public class Unseven implements ClientModInitializer {
   }
 
   public void displayMessage(Component component) {
-    Minecraft.getInstance().gui.getChat().addClientSystemMessage(
+    Minecraft.getInstance().gui.hud.getChat().addClientSystemMessage(
         Component.empty().withStyle(ChatFormatting.GRAY).append(PREFIX).append(component)
     );
   }

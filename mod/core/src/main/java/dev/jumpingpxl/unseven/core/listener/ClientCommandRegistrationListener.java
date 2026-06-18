@@ -41,7 +41,7 @@ public class ClientCommandRegistrationListener implements ClientCommandRegistrat
   }
 
   private int openSettingsFromCommand(CommandContext<FabricClientCommandSource> context) {
-    Minecraft.getInstance().schedule(() -> Minecraft.getInstance().setScreen(
+    Minecraft.getInstance().schedule(() -> Minecraft.getInstance().gui.setScreen(
         new ConfigurationScreenBuilder(this.unseven).build(null)
     ));
 
