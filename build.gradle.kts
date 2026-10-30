@@ -8,7 +8,15 @@ val globalSettings = gradle.extensions.findByType<GlobalSettings>()
     ?: error("plugin.GlobalSettings not initialized. Did you apply com.example.settings in settings.gradle.kts?")
 
 group = rootProject.extra["maven_group"] as String
-version = rootProject.extra["mod_version"] as String
+version = buildString {
+    append(rootProject.extra["mod_version"])
+    if (System.getenv("CI") != "true") {
+        append("-SNAPSHOT")
+    }
+
+    append("+mc")
+    append(libraries.versions.minecraft.get())
+}
 
 // Modules to exclude from the merged jar
 val excludedModules = listOf("processor", "runner")
@@ -50,9 +58,9 @@ if (globalSettings.sources) {
 }
 
 tasks.named("build") {
-    dependsOn("mergeJar")
+    finalizedBy("mergeJar")
     if (globalSettings.sources) {
-        dependsOn("mergeSourcesJar")
+        finalizedBy("mergeSourcesJar")
     }
 }
 
