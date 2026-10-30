@@ -42,8 +42,8 @@ public class AllowSendChatListener implements AllowChat {
     // if bypass is enabled and either lcontrol or rcontrol is pressed, allow
     if (configuration.bypassWhileControlPressed()) {
       Window window = Minecraft.getInstance().getWindow();
-      if (InputConstants.isKeyDown(window, InputConstants.KEY_LCONTROL)
-          || InputConstants.isKeyDown(window, InputConstants.KEY_RCONTROL)) {
+      if (InputConstants.isKeyDown(InputConstants.KEY_LCONTROL)
+          || InputConstants.isKeyDown(InputConstants.KEY_RCONTROL)) {
         return true;
       }
     }
